@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<?import moe.zenbu.app.ui.controls.autocomplete.TitleAutoCompleteField?>
+
+<VBox fx:id="addSeriesBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox fx:id="topBox">
+            <children>
+                <TitleAutoCompleteField prefWidth="150" fx:id="titleField"/>
+                <Button fx:id="addButton" mnemonicParsing="false" text="%popup.hamburger.addseries.add" />
+            </children>
+        </HBox>
+        <ScrollPane fx:id="seriesScrollPane" VBox.vgrow="ALWAYS">
+            <content>
+                <Accordion  fx:id="seriesAccordion" />
+            </content>
+        </ScrollPane>
+        <HBox fx:id="bottomBox">
+            <children>
+                <Button fx:id="clearButton" mnemonicParsing="false" text="%popup.hamburger.addseries.clear" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="doneButton" mnemonicParsing="false" text="%popup.hamburger.addseries.done" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

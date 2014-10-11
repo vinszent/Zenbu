@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="db.mappers.animemapper">
+    <!--Result maps-->
+    <resultMap id="completeLoad" type="Anime">
+        <id property="id" column="id"/>
+        <collection property="titles" javaType="arraylist" column="id" ofType="Title" select="db.mappers.titlemapper.selectTitle"/>
+        <collection property="genres" javaType="arraylist" column="id" ofType="Genre" select="db.mappers.genremapper.selectGenre"/>
+    </resultMap>
+
+    <!--Selects-->
+    <select id="selectAllAnime" resultMap="completeLoad">
+        SELECT * FROM Anime;
+    </select>
+
+    <select id="selectAllAnimeUpdatedAfter" resultMap="completeLoad" parameterType="date">
+        SELECT * FROM Anime WHERE lastUpdated > #{lastUpdated};
+    </select>
+
+    <select id="selectAnime" resultMap="completeLoad">
+        SELECT * FROM Anime WHERE id = #{id}
+    </select>
+
+    <!--Inserts-->
+    <insert id="insertAnime" useGeneratedKeys="true" keyProperty="id" parameterType="Anime">
+        INSERT INTO Anime(id, malId, hbId, alId, adbId, description, type, totalUnits, malImageUrl, hbImageUrl, alImageUrl, adbImageUrl, lastUpdated) VALUES (#{id}, #{malId}, #{hbId}, #{alId}, #{adbId}, #{description}, #{type}, #{totalUnits}, #{malImageUrl}, #{hbImageUrl}, #{alImageUrl}, #{adbImageUrl}, #{lastUpdated})
+    </insert>
+
+    <!--Updates-->
+    <update id="updateAnimeProviders">
+        UPDATE Anime SET hbId = #{hbId}, hbImageUrl = #{hbImageUrl} WHERE id = #{id}
+    </update>
+</mapper>

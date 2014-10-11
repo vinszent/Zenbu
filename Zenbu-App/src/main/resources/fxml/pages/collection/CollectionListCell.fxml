@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:id="listCellBox" minHeight="-Infinity" minWidth="-Infinity" styleClass="collection-list-box" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane fx:id="typePane" styleClass="type-pane">
+         <children>
+            <Rectangle fx:id="typeRectangle" height="20.0" styleClass="type-rectangle" width="50.0" />
+            <Label fx:id="typeLabel" styleClass="type-label" text="Label" />
+         </children>
+      </StackPane>
+      <Label fx:id="titleLabel" styleClass="title-label" text="Label" />
+      <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+      <StackPane fx:id="progressPane" styleClass="progress-pane">
+         <children>
+            <ProgressBar fx:id="progressBar" progress="0.0" />
+            <HBox fx:id="progressButtonsBox" styleClass="progress-button-box">
+               <children>
+                  <Button fx:id="decreaseProgressButton" mnemonicParsing="false" styleClass="decrease-progress-button" text="-" />
+                  <Label fx:id="progressLabel" styleClass="progress-label" text="Label" />
+                  <Button fx:id="increaseProgressButton" mnemonicParsing="false" styleClass="increase-progress-button" text="+" />
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+      <HBox fx:id="scoreBox" styleClass="score-box">
+         <children>
+            <SVGPath fx:id="scoreGraphic" content="m -37.4,-88 1.79085,5.0418 4.80915,0 -3.9237,2.96085 1.40265,5.19735 -4.07895,-3.1161 -4.07865,3.1161 1.40235,-5.19735 -3.9237,-2.96085 4.80915,0 L -37.4,-88 z" styleClass="score-graphic" />
+            <Label fx:id="scoreLabel" styleClass="score-label" text="Label" />
+         </children>
+      </HBox>
+   </children>
+</HBox>

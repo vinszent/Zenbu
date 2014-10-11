@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="db.mappers.titlemapper">
+    <!--Selects-->
+    <select id="selectTitle" resultType="Title">
+        SELECT * FROM Title WHERE id = #{id}
+    </select>
+
+    <!--Inserts-->
+    <insert id="insertTitle" parameterType="Title">
+        INSERT INTO Title (id, title, selected) VALUES (#{id}, #{title}, #{selected})
+    </insert>
+
+</mapper>

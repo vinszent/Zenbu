@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import moe.zenbu.app.ui.controls.*?>
+
+<VBox fx:id="episodeBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="subgroupLabel" text="Label" />
+      <Label fx:id="videoFlagLabel" text="Label" />
+      <Label fx:id="audioFlagLabel" text="Label" />
+      <VBox fx:id="canvasBox" styleClass="canvas-box">
+         <children>
+            <ResizableWriteableImageView fx:id="canvas" fitHeight="100.0" fitWidth="200.0" styleClass="preview-canvas" VBox.vgrow="ALWAYS" />
+            <ProgressBar fx:id="playerPositionBar" progress="0.0" styleClass="player-position-bar" />
+         </children>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="episode-info-popover-box" />
+   </styleClass>
+</VBox>

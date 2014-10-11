@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="db.mappers.episodemapper">
+    <!--Result maps-->
+    <resultMap id="completeLoad" type="Episode">
+        <id property="id" column="id"/>
+        <result property="episode" column="episode"/>
+        <collection property="videoFlags" column="{id=id,episode=episode}" javaType="ArrayList" ofType="VideoFlag" select="db.mappers.videoflagmapper.selectVideoFlag"/>
+        <collection property="audioFlags" column="{id=id,episode=episode}" javaType="ArrayList" ofType="AudioFlag" select="db.mappers.audioflagmapper.selectAudioFlag"/>
+        <collection property="subgroups" column="{id=id,episode=episode}" javaType="ArrayList" ofType="Subgroup" select="db.mappers.subgroupmapper.selectSubgroup"/>
+    </resultMap>
+
+    <!--Selects-->
+    <select id="selectEpisodesForAnime" resultMap="completeLoad">
+        SELECT * FROM Episode WHERE id = #{id}
+    </select>
+
+    <!--Inserts-->
+    <insert id="insertEpisode" parameterType="Episode">
+        MERGE INTO Episode (id, episode, crc32, filepath) VALUES (#{id}, #{episode}, #{crc32}, #{filepath});
+    </insert>
+
+    <!--Deletes-->
+    <delete id="deleteEpisode" parameterType="Episode">
+        DELETE FROM Episode WHERE id = #{id} AND episode = #{episode};
+    </delete>
+</mapper>

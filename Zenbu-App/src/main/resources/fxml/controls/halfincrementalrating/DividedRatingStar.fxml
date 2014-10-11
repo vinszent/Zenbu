@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<HBox fx:id="dividedRatingStar" styleClass="divided-rating-star" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane fx:id="leftStarPane" styleClass="left-half-star-pane">
+         <children>
+            <SVGPath id="1" fx:id="leftStarPath" content="m 325.19426,448.69324 -2.71023,7.63636 -7.28977,0 5.94886,4.48864 -2.125,7.875 6.17614,-4.72159 0,-15.27841 z" styleClass="left-half-star-path" />
+         </children>
+      </StackPane>
+      <StackPane fx:id="rightStarPane" styleClass="right-half-star-pane">
+         <children>
+            <SVGPath id="1" fx:id="rightStarPath" content="m 417.59603,453.07176 0,15.27841 6.17614,4.72159 -2.125,-7.875 5.94886,-4.48295 -7.28977,0 -2.71023,-7.64205 z" styleClass="right-half-star-path" />
+         </children>
+      </StackPane>
+   </children>
+</HBox>

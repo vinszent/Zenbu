@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="db.mappers.animemapper">
+    <!--Result maps-->
+    <resultMap id="completeLoad" type="Anime">
+        <id property="id" column="id"/>
+        <association property="userData" column="id" javaType="AnimeUserData" select="db.mappers.animeuserdatamapper.selectAnimeUserData"/>
+        <collection property="titles" javaType="arraylist" column="id" ofType="Title" select="db.mappers.titlemapper.selectTitle"/>
+        <collection property="genres" javaType="arraylist" column="id" ofType="Genre" select="db.mappers.genremapper.selectGenre"/>
+    </resultMap>
+
+    <!--Selects-->
+    <select id="selectAnime" resultMap="completeLoad">
+        SELECT * FROM Anime WHERE id = #{id};
+    </select>
+
+    <select id="selectAllAnime" resultMap="completeLoad">
+        SELECT * FROM Anime;
+    </select>
+
+    <select id="selectAnimeByHbId" resultMap="completeLoad">
+        SELECT * FROM Anime WHERE hbId = #{hbId};
+    </select>
+
+    <select id="selectAnimeByMalId" resultMap="completeLoad">
+        SELECT * FROM Anime WHERE malId = #{malId};
+    </select>
+
+    <select id="selectAnimeWithUserData" resultMap="completeLoad">
+        SELECT * FROM Anime WHERE Anime.id IN (SELECT AnimeUserData.id FROM AnimeUserData);
+    </select>
+
+
+    <!--Inserts-->
+    <insert id="insertAnime" parameterType="Anime">
+        INSERT INTO Anime (id, malImageUrl) VALUES (#{id}, #{malImageUrl});
+    </insert>
+
+    <insert id="mergeAnime" parameterType="Anime">
+        MERGE INTO Anime(id, malId, hbId, alId, adbId, description, type, totalUnits, malImageUrl, hbImageUrl, alImageUrl, adbImageUrl) VALUES(#{id}, #{malId}, #{hbId}, #{alId}, #{adbId}, #{description}, #{type}, #{totalUnits}, #{malImageUrl}, #{hbImageUrl}, #{alImageUrl}, #{adbImageUrl});
+    </insert>
+</mapper>

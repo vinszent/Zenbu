@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox fx:id="progressBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="progress-popup-box" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="progressField" styleClass="progress-field" />
+      <Label fx:id="dividerLabel" styleClass="divider-label" text="%popup.progress.outof" />
+      <TextField fx:id="totalUnitsField" styleClass="total-units-field" />
+   </children>
+</HBox>

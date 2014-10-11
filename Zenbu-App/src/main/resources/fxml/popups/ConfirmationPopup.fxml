@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="confirmationBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moe.zenbu.app.ui.components.popups.embedded.dialogue.confirmation.InlineDialogueConfirmationPopupFxmlController">
+   <children>
+      <Label fx:id="messageLabel" styleClass="message-label" text="Label" wrapText="true" />
+      <HBox fx:id="buttonBox" styleClass="button-box">
+         <children>
+            <Button fx:id="yesButton" mnemonicParsing="false" styleClass="yes-button" text="%popup.confirmation.yes" />
+            <Button fx:id="noButton" mnemonicParsing="false" styleClass="no-button" text="%popup.confirmation.no" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" styleClass="cancel-button" text="%popup.confirmation.cancel" />
+         </children>
+      </HBox>
+   </children>
+   <styleClass>
+      <String fx:value="confirmation-box" />
+      <String fx:value="inline-popup" />
+   </styleClass>
+</VBox>

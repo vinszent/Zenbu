@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="db.mappers.animeuserdatamapper">
+    <!--Result maps-->
+    <resultMap id="completeLoad" type="AnimeUserData">
+        <id property="id" column="id"/>
+        <collection property="episodes" javaType="arraylist" column="id" ofType="Episode" select="db.mappers.episodemapper.selectEpisodesForAnime"/>
+    </resultMap>
+
+    <!--Selects-->
+    <select id="selectAnimeUserData" resultMap="completeLoad">
+        SELECT * FROM AnimeUserData WHERE id = #{id};
+    </select>
+
+    <select id="countAnimeUserData" resultType="int">
+        SELECT COUNT(*) FROM AnimeUserData WHERE id = #{id};
+    </select>
+
+    <!--Inserts-->
+    <insert id="insertAnimeUserData" parameterType="AnimeUserData">
+        INSERT INTO AnimeUserData (id, progress, score, status) VALUES (#{id}, #{progress}, #{score}, #{status});
+    </insert>
+
+    <insert id="insertAnimeUserDataIfNotExists" parameterType="AnimeUserData">
+        INSERT INTO AnimeUserData (id, progress, score, status) VALUES (#{id}, #{progress}, #{score}, #{status});
+    </insert>
+
+    <!--Updates-->
+    <update id="updateAnimeUserData" parameterType="AnimeUserData">
+        UPDATE AnimeUserData SET progress = #{progress}, score = #{score}, status = #{status} WHERE id = #{id};
+    </update>
+
+    <!--Deletes-->
+    <delete id="deleteAnimeUserData" parameterType="AnimeUserData">
+        DELETE FROM AnimeUserData WHERE id = #{id};
+    </delete>
+</mapper>

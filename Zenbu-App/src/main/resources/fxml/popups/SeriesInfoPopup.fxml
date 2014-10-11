@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" styleClass="series-info-popover-box" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moe.zenbu.app.ui.components.popovers.collection.seriesinfo.SeriesInfoPopOverFxmlController">
+   <children>
+      <Label fx:id="titleLabel" styleClass="title-label" text="Label" />
+      <Label fx:id="typeLabel" styleClass="type-label" text="Label" />
+      <Label fx:id="genresLabel" styleClass="genres-label" text="Label" />
+      <Label fx:id="descriptionLabel" styleClass="description-label" text="Label" />
+   </children>
+</VBox>
